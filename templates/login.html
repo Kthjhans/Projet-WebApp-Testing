@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <body>
+    <h1>Page de connexion</h1>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li style="color:red;">{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post" action="{{ url_for('login') }}">
+      <input type="text" name="user_name" placeholder="Nom d'utilisateur" required><br>
+      <input type="password" name="password" placeholder="Mot de passe" required><br>
+      <input type="submit" value="Entrer">
+    </form>
+  </body>
+</html>
